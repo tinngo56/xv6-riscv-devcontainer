@@ -39,7 +39,7 @@ void pipe1(int fd[2])
 
 int main(int argc, char *argv[])
 {
-  if (argc < 4)
+  if (argc != 4)
   {
     // unitcast 5 3 Hello!
     panic("Usage: broadcast <num_of_children> <id_of_receiver> <msg_to_broadcast>");
