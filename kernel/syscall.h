@@ -20,3 +20,7 @@
 #define SYS_link   19
 #define SYS_mkdir  20
 #define SYS_close  21
+// Adding System call numbers
+#define SYS_getppid 22
+#define SYS_ps     23
+#define SYS_getschedhistory 24

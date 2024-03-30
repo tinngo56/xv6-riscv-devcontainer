@@ -1,3 +1,43 @@
+Name: Tin Ngo
+Email: tinngo56@iastate.edu
+
+`make qemu` to start
+
+This project involves extending the xv6 operating system by implementing three new system calls: `getppid`, `ps`, and `getschedhistory`, each providing specific process-related information. The `getppid` system call returns the parent process ID, while `ps` lists current processes along with their IDs, parent IDs, states, and names. The `getschedhistory` call provides detailed scheduling information about the calling process, including counts of runs, system calls, interrupts, preemptions, and traps.
+
+
+Modified files: 
+
+    kernel/proc.c
+    kernel/proc.h
+    kernel/syscall.c
+    kernel/syscall.h
+    kernel/sysproc.c
+    kernel/trap.c
+    user/broadcast.c
+    user/user.h
+    user/usys.pl
+
+No additional files were added
+
+Project 1b fully complete
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This is a modified distribution of the Xv6 RISC-V operating system written by Ryan Huellen. The packaged software itself remains untouched, however contained within this repository (in `.devcontainer/`) are the files necessary for building and running the operating system in a Docker container.
 
 Though this distribution was originally created for student use at Iowa State University, others are welcome to freely use, modify, and redistribute the contained software. In the spirit of open-source and the authors of this operating system, the original license listed below (and in `LICENSE`) will apply to this release as well.

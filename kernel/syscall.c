@@ -101,6 +101,10 @@ extern uint64 sys_unlink(void);
 extern uint64 sys_link(void);
 extern uint64 sys_mkdir(void);
 extern uint64 sys_close(void);
+// add the system call declarations and function pointers in syscalls[].
+extern uint64 sys_getppid(void);
+extern uint64 sys_ps(void);
+extern uint64 sys_getschedhistory(void);
 
 // An array mapping syscall numbers from syscall.h
 // to the function that handles the system call.
@@ -126,6 +130,11 @@ static uint64 (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
+// add the system call declarations and function pointers in syscalls[].
+[SYS_getppid] sys_getppid,
+[SYS_ps]      sys_ps,
+[SYS_getschedhistory] sys_getschedhistory,
+
 };
 
 void

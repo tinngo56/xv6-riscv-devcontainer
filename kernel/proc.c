@@ -169,6 +169,13 @@ freeproc(struct proc *p)
   p->killed = 0;
   p->xstate = 0;
   p->state = UNUSED;
+  // Add counters based off what we added in proc.h
+  p->runCount = 0;
+  p->systemcallCount = 0;
+  p->interruptCount = 0;
+  p->preemptCount = 0;
+  p->trapCount = 0;
+  p->sleepCount = 0;
 }
 
 // Create a user page table for a given process, with no user memory,
@@ -460,6 +467,9 @@ scheduler(void)
         // before jumping back to us.
         p->state = RUNNING;
         c->proc = p;
+        // Counting every time after such a process is picked and 
+        // before the context switch
+        p->runCount++;
         swtch(&c->context, &p->context);
 
         // Process is done running for now.
@@ -550,6 +560,8 @@ sleep(void *chan, struct spinlock *lk)
   // Go to sleep.
   p->chan = chan;
   p->state = SLEEPING;
+  // to increment the current process’ sleepCount before sched() is invoked
+  p->sleepCount++;
 
   sched();
 
